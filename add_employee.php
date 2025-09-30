@@ -16,30 +16,31 @@ $ses=$_SESSION['user'];
         body {
             margin: 0;
             padding: 0;
+            height: 100vh;
+            overflow: hidden; /* 🚀 prevents scrolling */
             background: linear-gradient(135deg, #cfd2dc, #eceef3);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
         .form-container {
-            background: #f6f7fa;
-            border-radius: 20px;
-            padding: 40px;
             width: 90%;
-            max-width: 500px;
-            border: 2px solid #999;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
         }
         .form-container h2 {
             text-align: center;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
         .floating-input {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .floating-input input,
         .floating-input select {
@@ -73,7 +74,7 @@ $ses=$_SESSION['user'];
         .gender-group {
             display: flex;
             justify-content: space-around;
-            margin: 15px 0;
+            margin: 10px 0;
         }
         .gender-group label {
             color: #444;
@@ -81,7 +82,7 @@ $ses=$_SESSION['user'];
         }
         .form-actions {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .form-actions button {
             padding: 10px 20px;

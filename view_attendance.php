@@ -120,7 +120,7 @@ $stmt->close();
                 <input type="text" value="<?php echo htmlspecialchars($attendance['status'] ?? 'N/A'); ?>" readonly>
             </div>
             <div class="back-btn">
-                <a href="emp_attendance.php">Back to Attendance</a>
+                <a href="admin_attendance.php">Back to Attendance</a>
             </div>
         </form>
     </div>

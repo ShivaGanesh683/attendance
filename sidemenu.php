@@ -80,15 +80,39 @@ if($_SESSION['user']=="admin"){ ?>
 </head>
 <body>
  <!-- Sidebar -->
+
+ <?php
+include 'connection.php'; // Database connection
+
+// Set timezone
+date_default_timezone_set('Asia/Kolkata');
+$today = date('Y-m-d');
+
+// Fetch today's leave request count
+$leave_count = 0;
+$stmt = $conn->prepare("SELECT COUNT(*) AS total FROM emp_attendance WHERE status = 'Leave' AND date = ?");
+$stmt->bind_param("s", $today);
+$stmt->execute();
+$stmt->bind_result($leave_count);
+$stmt->fetch();
+$stmt->close();
+?>
+
 <div class="sidebar">
         <a href="dashboard.php">Dashboard</a>
         <a href="employeelist.php">Employees</a>
         <a href="user_list.php">Usermanagement</a>
         <a href="admin_attendance.php">Attendance</a>
         <a href="emp_attendance.php">Employee Attendance</a>
+        <a href="emp_leaves.php">Leaves
+        <?php if($leave_count > 0){ ?>
+            <span class="badge badge-light" style="background-color:red; color:white; border-radius:50%; padding:2px 6px;"><?php echo $leave_count; ?></span>
+        <?php } ?>
+    </a>
         <a href="atte_overview.php">Overview</a>
         <a href="payroll.php">Payroll</a>
         <a href="leave_req.php">Leave Request</a>
+        <a href="payslip.php">Payslip</a>
         <!-- <a href="projects.php">Projects</a>
         <a href="settings.php">Settings</a> -->
     </div>
