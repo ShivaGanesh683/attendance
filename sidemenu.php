@@ -113,8 +113,8 @@ $stmt->close();
         <a href="payroll.php">Payroll</a>
         <a href="leave_req.php">Leave Request</a>
         <a href="payslip.php">Payslip</a>
-        <!-- <a href="projects.php">Projects</a>
-        <a href="settings.php">Settings</a> -->
+        <a href="salaries_report.php">Salaries</a>
+        <!-- <a href="settings.php">Settings</a>  -->
     </div>
 
     <!-- Page content -->

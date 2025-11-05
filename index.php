@@ -19,15 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = mysqli_fetch_array($result);
     $count = mysqli_num_rows($result);
 
-    if ($count == 1) {
-        $_SESSION['user'] = $row['name1'];
-        header("location: dashboard.php");
-        exit();
+   if ($count == 1) {
+    $_SESSION['user'] = $row['name1'];
+
+    if ($_SESSION['user'] == 'admin') {
+        header("Location: dashboard.php"); // Redirect admin
     } else {
-        $_SESSION['error_message'] = "❌ Invalid Username or Password!";
-        header("Location: " . $_SERVER['PHP_SELF']);
-        exit();
+        header("Location: dashboard1.php"); // Redirect normal user
     }
+    exit();
+} else {
+    $_SESSION['error_message'] = "❌ Invalid Username or Password!";
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
 }
 ?>
 <!DOCTYPE html>

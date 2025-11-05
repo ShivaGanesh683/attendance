@@ -84,8 +84,37 @@ if ($_SESSION['user'] == "admin") { ?>
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
                 cursor: pointer;
             }
+
+            .greeting {
+            font-size: 14px;
+            font-weight: 600;
+            color: #007bff;
+            margin-top: 2px;
+            /* ↓ less space */
+            margin-bottom: 4px;
+        }
         </style>
     </head>
+
+    
+
+<?php
+// Set timezone to India
+date_default_timezone_set('Asia/Kolkata');
+
+$hour = date('H');
+
+if ($hour < 12) {
+    $greeting = "Good Morning";
+} elseif ($hour < 17) {
+    $greeting = "Good Afternoon";
+} else {
+    $greeting = "Good Evening";
+}
+
+$name = isset($_SESSION['user']) && !empty($_SESSION['user']) ? $_SESSION['user'] : 'User';
+?>
+<div class="greeting">👋 <?= $greeting; ?>, <?= ucfirst(htmlspecialchars($name)); ?>!</div>
 
     <body>
 

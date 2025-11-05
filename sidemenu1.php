@@ -78,7 +78,7 @@ if ($sql) {
     <div class="sidebar">
       <?php if ($menu2 == "2") {
     ?>
-        <a href="dashboard.php">Dashboard</a><?php
+        <a href="dashboard1.php">Dashboard</a><?php
 }?>
 
         <?php if ($menu3 == "3") {
